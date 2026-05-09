@@ -7,6 +7,6 @@ jobs:
             BRANCH: main
         steps:
             - run: echo "${BRANCH}"
-            - user: actions/checkout@v4
-            with:
+            - uses: actions/checkout@v4
+              with:
                 ref: ${{ env.BRANCH }}
