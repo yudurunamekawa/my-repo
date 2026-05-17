@@ -1,5 +1,5 @@
 name: Manual
-on:
+on: {}
   workflow_dispatch:
     inputs:
         greeting:

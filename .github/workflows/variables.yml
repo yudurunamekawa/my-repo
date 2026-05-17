@@ -1,5 +1,5 @@
 name: Variables
-on: push
+on: {}
 jobs:
     print:
         runs-on: ubuntu-latest

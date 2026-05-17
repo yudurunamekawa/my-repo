@@ -1,5 +1,5 @@
 name: Context
-on: push
+on: {}
 jobs:
     print:
         runs-on: ubuntu-latest
