@@ -1,5 +1,5 @@
 name: Compare functions
-on: push
+on: {}
 jobs:
     compare:
         runs-on: ubuntu-latest
