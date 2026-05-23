@@ -1,0 +1,19 @@
+name: Environments
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                type: environment
+                default: test
+                required: false
+                description: Environment name
+jobs:
+    print:
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.environment-name }}
+        env:
+            YUDURU: ${{ vars.YUDURU}}
+            PASSWORD: ${{ secrets.PASSWORD }}
+        steps:
+            - run: echo "${YUDURU}"
+            - run: echo "${PASSWORD:0:1}" ${PASSWORD}
