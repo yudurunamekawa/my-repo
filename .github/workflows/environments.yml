@@ -12,8 +12,8 @@ jobs:
         runs-on: ubuntu-latest
         environment: ${{ inputs.environment-name }}
         env:
-            YUDURU: ${{ vars.YUDURU}}
+            USERNAME: ${{ vars.USERNAME }}
             PASSWORD: ${{ secrets.PASSWORD }}
         steps:
-            - run: echo "${YUDURU}"
+            - run: echo "${USERNAME}"
             - run: echo "${PASSWORD:0:1}" ${PASSWORD}
