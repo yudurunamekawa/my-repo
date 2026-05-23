@@ -4,7 +4,7 @@ on:
         inputs:
             environment:
                 type: environment
-                default: test
+                default: prod
                 required: false
                 description: Environment name
 jobs:
