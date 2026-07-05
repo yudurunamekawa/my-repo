@@ -1,14 +1,20 @@
 name: Dump
+
 on: push
-    debug:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: ./.github/actions/dump
-            id: dump
-            with:
-                enable-context: 'true'
-            - run: echo "${DATE}"
-              env:
-                DATE: ${{ steps.dump.outputs.dumped-date }}
-                
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/dump
+        id: dump
+        with:
+          enable-context: 'true'
+
+      - name: Print dumped date
+        run: echo "${DATE}"
+        env:
+          DATE: ${{ steps.dump.outputs.dumped-date }}
