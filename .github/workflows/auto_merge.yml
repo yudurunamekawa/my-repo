@@ -14,11 +14,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Approve PR
-        run: gh pr review ${{ github.event.pull_request.number }} --approve
+        run: |
+          gh pr review ${{ github.event.pull_request.number }} --approve
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto-merge PR
-        run: gh pr merge ${{ github.event.pull_request.number }} --merge --auto
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} --merge --auto
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
