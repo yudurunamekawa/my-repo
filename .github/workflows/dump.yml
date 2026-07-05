@@ -11,3 +11,4 @@ on: push
             - run: echo "${DATE}"
               env:
                 DATE: ${{ steps.dump.outputs.dumped-date }}
+                
