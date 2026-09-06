@@ -22,14 +22,14 @@ runs:
     - run: |
         aws ecs describe-task-definition \
           --task-definition "${TASK_DEFINITION}" \
-          --query taskDefinition --output json > "${RUNNER_TEMP}/task_def.json"
+          --query taskDefinition --output json > "${{ runner.temp }}/task_def.json"
       env:
         TASK_DEFINITION: ${{ inputs.task-definition }}
       shell: bash
     - uses: aws-actions/amazon-ecs-render-task-definition@v1
       id: render
       with:
-        task-definition: "${RUNNER_TEMP}/task_def.json"
+        task-definition: ${{ runner.temp }}/task_def.json
         container-name: ${{ inputs.container-name }}
         image: ${{ inputs.container-image }}
     - uses: aws-actions/amazon-ecs-deploy-task-definition@v1
