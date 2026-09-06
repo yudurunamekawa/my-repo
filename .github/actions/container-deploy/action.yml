@@ -22,7 +22,7 @@ runs:
     - run: |
         aws ecs describe-task-definition \
           --task-definition "${TASK_DEFINITION}" \
-          --query taskDefinition --output json > "${{ runner.temp }}/task_def.json"
+          --query taskDefinition --output json | jq 'del(.enableFaultInjection)' > "${{ runner.temp }}/task_def.json"
       env:
         TASK_DEFINITION: ${{ inputs.task-definition }}
       shell: bash
